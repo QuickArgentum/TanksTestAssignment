@@ -28,6 +28,9 @@ public class UserInput : MonoBehaviour
         }
 
         controller.SetMovementDirection(direction);
+
+        if (Input.GetButtonDown("Fire"))
+            controller.Fire();
     }
 
     private Vector3 HorizontalHandler()
