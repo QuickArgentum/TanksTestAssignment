@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,15 @@ public class UserInput : MonoBehaviour
 {
     private TankController controller;
     private List<AxisHandler> axisHandlers = new List<AxisHandler>();
+    private bool disabled = false;
 
     private void Awake()
     {
         controller = GetComponent<TankController>();
+        controller.DeadStateChanged += (object s, EventArgs args) =>
+        {
+            disabled = (args as TankController.DeadStateEventArgs).isDead;
+        };
 
         axisHandlers.Add(HorizontalHandler);
         axisHandlers.Add(VerticalHandler);
@@ -18,6 +24,8 @@ public class UserInput : MonoBehaviour
 
     private void Update()
     {
+        if (disabled) return;
+
         Vector3 direction = Vector3.zero;
 
         foreach (AxisHandler handler in axisHandlers)

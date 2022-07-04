@@ -47,6 +47,7 @@ public class TankController : MonoBehaviour
     public void Kill()
     {
         UpdateDeadState(true);
+        rb.velocity = Vector3.zero;
         RespawnManager.Instance.RequestRespawn(this);
     }
 
