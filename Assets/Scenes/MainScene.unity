@@ -1069,6 +1069,8 @@ GameObject:
   - component: {fileID: 1651481760}
   - component: {fileID: 1651481759}
   - component: {fileID: 1651481761}
+  - component: {fileID: 1651481763}
+  - component: {fileID: 1651481762}
   m_Layer: 7
   m_Name: Tank
   m_TagString: Untagged
@@ -1120,6 +1122,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &1651481762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651481758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90809dbbbbdd07b4bb8d04d699f53da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1651481763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651481758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3464a9ce2d4660141965b5ade8e13e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &1679189193
 GameObject:
   m_ObjectHideFlags: 0
