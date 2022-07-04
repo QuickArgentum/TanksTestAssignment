@@ -6,9 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(TankController))]
 public class UserInput : MonoBehaviour
 {
+    public float refireTime;
+
     private TankController controller;
     private List<AxisHandler> axisHandlers = new List<AxisHandler>();
     private bool disabled = false;
+    private float lastFireTime = 0;
 
     private void Awake()
     {
@@ -37,8 +40,11 @@ public class UserInput : MonoBehaviour
 
         controller.SetMovementDirection(direction);
 
-        if (Input.GetButtonDown("Fire"))
+        if (Input.GetButtonDown("Fire") && Time.time > lastFireTime + refireTime)
+        {
             controller.Fire();
+            lastFireTime = Time.time;
+        }
     }
 
     private Vector3 HorizontalHandler()
