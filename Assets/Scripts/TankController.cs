@@ -11,7 +11,7 @@ public class TankController : MonoBehaviour
     public event EventHandler DeadStateChanged;
 
     private Rigidbody rb;
-    private Collider collider;
+    private Collider col;
     private GameObject view;
     private Quaternion rotation;
     private bool isDead = false;
@@ -19,7 +19,7 @@ public class TankController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
+        col = GetComponent<Collider>();
         view = transform.Find("View").gameObject;
     }
 
@@ -61,7 +61,7 @@ public class TankController : MonoBehaviour
     {
         isDead = value;
         view.SetActive(!value);
-        collider.enabled = !value;
+        col.enabled = !value;
 
         DeadStateChanged?.Invoke(this, new DeadStateEventArgs { isDead = value });
     }
