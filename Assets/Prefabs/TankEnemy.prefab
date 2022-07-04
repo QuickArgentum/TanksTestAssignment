@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9051195539872004121, guid: 8bb9ac49168f7eb47ae567599c3e5571, type: 3}
+      propertyPath: m_Mass
+      value: 1e+9
+      objectReference: {fileID: 0}
     - target: {fileID: 9051195539872004123, guid: 8bb9ac49168f7eb47ae567599c3e5571, type: 3}
       propertyPath: alignment
       value: 1
@@ -84,3 +88,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alignment: 1
+--- !u!114 &7403233711277426611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972385241863983970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6754826f6f4a864fb86ea3084fb3896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDecisionTime: 0.5
+  maxDecisionTime: 3
+  decisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 192
+  moveTestDistance: 1
