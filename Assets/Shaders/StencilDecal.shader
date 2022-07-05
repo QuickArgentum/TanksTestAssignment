@@ -1,4 +1,4 @@
-Shader "Unlit/Transparent Colored" {
+Shader "Decal/Stencil Decal" {
     Properties
     {
         _Color("Main Color", Color) = (1,1,1,1)
@@ -7,6 +7,12 @@ Shader "Unlit/Transparent Colored" {
     SubShader
     {
         Tags {"Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent"}
+
+        Stencil
+        {
+            Ref 1
+            Comp Equal
+        }
 
         ZWrite Off
         Lighting Off
