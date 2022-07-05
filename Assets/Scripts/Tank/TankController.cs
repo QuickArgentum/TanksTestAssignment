@@ -12,7 +12,7 @@ public class TankController : MonoBehaviour
 
     private Rigidbody rb;
     private Collider col;
-    private GameObject view;
+    private TankView view;
     private Quaternion rotation;
     private bool isDead = false;
 
@@ -20,7 +20,7 @@ public class TankController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
-        view = transform.Find("View").gameObject;
+        view = transform.Find("View").GetComponent<TankView>();
     }
 
     public void SetMovementDirection(Vector3 direction)
@@ -30,7 +30,10 @@ public class TankController : MonoBehaviour
         rb.velocity = direction * speed;
 
         if (direction.magnitude > Mathf.Epsilon)
+        {
             rotation = Quaternion.LookRotation(direction, Vector3.up);
+            view.SetDirection(direction);
+        }
     }
 
     public void Fire()
@@ -61,7 +64,7 @@ public class TankController : MonoBehaviour
     public void UpdateDeadState(bool value)
     {
         isDead = value;
-        view.SetActive(!value);
+        view.gameObject.SetActive(!value);
         col.enabled = !value;
 
         DeadStateChanged?.Invoke(this, new DeadStateEventArgs { isDead = value });
