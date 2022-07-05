@@ -67,6 +67,8 @@ public class TankController : MonoBehaviour
         bullet.transform.position = transform.position + rotation * bulletSpawnOffset;
         bullet.GetComponent<ContactDamage>().alignment = alignment;
         bullet.GetComponent<Bullet>().SetSource(gameObject);
+
+        view.PlayFireAnimation();
     }
 
     public void Kill()

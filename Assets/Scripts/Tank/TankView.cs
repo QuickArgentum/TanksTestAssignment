@@ -13,10 +13,12 @@ public class TankView : MonoBehaviour
     private float currentSpeed;
     private float speedDelta;
     private Animator animator;
+    private Animation muzzleFlash;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        muzzleFlash = transform.Find("MuzzleFlash").GetComponent<Animation>();
     }
 
     private void Update()
@@ -24,7 +26,7 @@ public class TankView : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, rotationRadianDelta, 0.0f));
 
         float value = Mathf.Clamp(speedDelta * accelerationMultiplier, -1, 1) * 0.5f + 0.5f;
-        animator.SetFloat("Acceleration", value);
+        animator.SetFloat(AnimationNames.PARAM_ACCELERATION, value);
     }
 
     public void SetDirection(Vector3 direction)
@@ -44,5 +46,10 @@ public class TankView : MonoBehaviour
         explosion.transform.position = transform.position;
         explosion.transform.rotation = transform.rotation;
         explosion.GetComponent<Explosion>().Init(velocity, material);
+    }
+
+    public void PlayFireAnimation()
+    {
+        muzzleFlash.Play();
     }
 }
