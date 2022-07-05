@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationRadianDelta: 0.12
+  explosionPrefab: {fileID: 8825486778759195866, guid: 9cccf00067fc8414b8f31c64f1098a1a, type: 3}
 --- !u!1001 &5962427815682045968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,6 +199,10 @@ PrefabInstance:
     - target: {fileID: 1062844040075069322, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: -7805965318761107941, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+    - target: {fileID: 1062844040075069322, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
       objectReference: {fileID: 2100000, guid: e5bd5b421506be548852cdfd7fd51b22, type: 2}
     - target: {fileID: 1299601628124013190, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
       propertyPath: m_ReceiveShadows
@@ -205,6 +210,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1299601628124013190, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -7805965318761107941, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+    - target: {fileID: 1299601628124013190, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: e5bd5b421506be548852cdfd7fd51b22, type: 2}
     - target: {fileID: 7202271454713460447, guid: 0b2be22e1f534004397239d96290ced5, type: 3}

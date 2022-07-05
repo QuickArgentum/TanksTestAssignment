@@ -53,6 +53,7 @@ public class TankController : MonoBehaviour
         rb.velocity = Vector3.zero;
         RespawnManager.Instance.RequestRespawn(this);
         ScoreManager.Instance.HandleKill(this);
+        view.PlayDeathAnimation(rb.velocity);
     }
 
     public void Respawn(Vector3 position)
