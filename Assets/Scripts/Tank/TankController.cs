@@ -78,6 +78,7 @@ public class TankController : MonoBehaviour
         direction = Vector3.zero;
         RespawnManager.Instance.RequestRespawn(this);
         ScoreManager.Instance.HandleKill(this);
+        DecalManager.Instance.CreateDecal(transform.position);
         view.PlayDeathAnimation(rb.velocity);
     }
 
