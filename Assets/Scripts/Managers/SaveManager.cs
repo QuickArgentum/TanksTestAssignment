@@ -23,13 +23,14 @@ public class SaveManager : Singleton<SaveManager>
 
     private void Load()
     {
-        StreamReader reader = new StreamReader(path);
-        string json = reader.ReadToEnd();
-
         SaveData data = null;
+        
         try
         {
+            StreamReader reader = new StreamReader(path);
+            string json = reader.ReadToEnd();
             data = JsonUtility.FromJson<SaveData>(json);
+            reader.Close();
         }
         catch(Exception) { }
 
@@ -44,7 +45,9 @@ public class SaveManager : Singleton<SaveManager>
         string json = JsonUtility.ToJson(CreateData());
 
         StreamWriter writer = new StreamWriter(path);
-        writer.Write(json);
+        writer.WriteLine(json);
+        writer.Flush();
+        writer.Close();
     }
 
     private SaveData CreateData()
