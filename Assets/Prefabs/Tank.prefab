@@ -175,22 +175,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4795160085687874365, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1312120006616042078, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
       propertyPath: m_Name
       value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062844040075069322, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1062844040075069322, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e5bd5b421506be548852cdfd7fd51b22, type: 2}
     - target: {fileID: 1299601628124013190, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299601628124013190, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e5bd5b421506be548852cdfd7fd51b22, type: 2}
     - target: {fileID: 7202271454713460447, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: e5bd5b421506be548852cdfd7fd51b22, type: 2}
+    - target: {fileID: 7656274040620010273, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b2be22e1f534004397239d96290ced5, type: 3}
 --- !u!4 &6139661931937505275 stripped
