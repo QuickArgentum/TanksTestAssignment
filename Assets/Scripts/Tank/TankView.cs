@@ -17,23 +17,27 @@ public class TankView : MonoBehaviour
     private Animator animator;
     private Transform muzzleFlash;
     private Animation muzzleAnimation;
+
     private AudioSource muzzleAudio;
     private AudioSource engineAudio;
     private AudioSource whooshAudio;
+    private AudioSource spawnAudio;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         muzzleFlash = transform.Find("MuzzleFlash");
         muzzleAnimation = muzzleFlash.GetComponent<Animation>();
+
         muzzleAudio = muzzleFlash.GetComponent<AudioSource>();
         engineAudio = GetComponent<AudioSource>();
         whooshAudio = transform.Find("WhooshSound").GetComponent<AudioSource>();
+        spawnAudio = transform.Find("SpawnSound").GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, rotationRadianDelta, 0.0f));
+        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, rotationRadianDelta * Time.deltaTime, 0.0f));
 
         float value = Mathf.Clamp(speedDelta * accelerationMultiplier, -1, 1) * 0.5f + 0.5f;
         animator.SetFloat(AnimationNames.PARAM_ACCELERATION, value);
@@ -67,6 +71,7 @@ public class TankView : MonoBehaviour
     public void PlaySpawnAnimation()
     {
         muzzleAnimation.Play(AnimationNames.MUZZLE_FLASH_RESET);
+        spawnAudio.Play();
     }
 
     public void PlayFireAnimation()

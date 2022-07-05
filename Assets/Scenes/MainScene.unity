@@ -2046,10 +2046,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2377977625295377897, guid: b97382efc32847f4791b848ed421762e, type: 3}
-      propertyPath: speedChangeLambda
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 8927701526981519115, guid: b97382efc32847f4791b848ed421762e, type: 3}
       propertyPath: m_Name
       value: TankPlayer
