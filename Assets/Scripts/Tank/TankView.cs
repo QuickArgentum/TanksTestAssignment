@@ -13,12 +13,16 @@ public class TankView : MonoBehaviour
     private float currentSpeed;
     private float speedDelta;
     private Animator animator;
-    private Animation muzzleFlash;
+    private Transform muzzleFlash;
+    private Animation muzzleAnimation;
+    private AudioSource muzzleAudio;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        muzzleFlash = transform.Find("MuzzleFlash").GetComponent<Animation>();
+        muzzleFlash = transform.Find("MuzzleFlash");
+        muzzleAnimation = muzzleFlash.GetComponent<Animation>();
+        muzzleAudio = muzzleFlash.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -50,6 +54,7 @@ public class TankView : MonoBehaviour
 
     public void PlayFireAnimation()
     {
-        muzzleFlash.Play();
+        muzzleAnimation.Play();
+        muzzleAudio.Play();
     }
 }
