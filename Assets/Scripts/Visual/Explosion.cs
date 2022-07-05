@@ -6,6 +6,9 @@ public class Explosion : MonoBehaviour
     public ExplosionDebris[] debris;
     public float lifetimeVariance;
     public float forceMultiplier;
+    public float forceVariance;
+    public float forceDirectionRandomness;
+    public float torqueMultiplier;
     public Vector3 forceOffset;
 
     private Vector3 velocity;
@@ -20,7 +23,11 @@ public class Explosion : MonoBehaviour
 
             item.lifetime += Random.Range(-lifetimeVariance / 2, lifetimeVariance / 2);
             item.SetMaterial(material);
-            item.AddForce(vector * forceMultiplier / Mathf.Pow(vector.magnitude, 2) + velocity + forceOffset);
+            item.AddForce
+            (
+                (vector + Random.insideUnitSphere * Random.Range(0, forceDirectionRandomness)) * (forceMultiplier + Random.Range(-forceVariance / 2, forceVariance / 2)) / Mathf.Pow(vector.magnitude, 2) + velocity + forceOffset
+            );
+            item.AddTorque(Random.insideUnitSphere * Random.Range(0, torqueMultiplier));
         }
 
         StartCoroutine(QueueDestruction(GetComponent<Animation>().GetClip("Explosion").length));

@@ -714,6 +714,9 @@ MonoBehaviour:
   - {fileID: 6213051619378160753}
   lifetimeVariance: 1
   forceMultiplier: 100
+  forceVariance: 20
+  forceDirectionRandomness: 0.05
+  torqueMultiplier: 5
   forceOffset: {x: 0, y: 20, z: 0}
 --- !u!1 &8903582027036668877
 GameObject:

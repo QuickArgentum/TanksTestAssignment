@@ -30,7 +30,12 @@ public class ExplosionDebris : MonoBehaviour
     public void AddForce(Vector3 force)
     {
         rb.AddForce(force);
-        rb.AddTorque(Random.insideUnitSphere);
+    }
+
+    public void AddTorque(Vector3 torque)
+    {
+        rb.AddTorque(torque);
+
     }
 
     public void SetMaterial(Material material)
