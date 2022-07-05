@@ -37,7 +37,8 @@ public class SaveManager : Singleton<SaveManager>
         if (data == null)
             data = new SaveData();
 
-        ScoreManager.Instance.SetData(data.score);
+        ScoreManager.Instance.Data = data.score;
+        AudioManager.Instance.Data = data.audio;
     }
 
     private void Save()
@@ -53,7 +54,8 @@ public class SaveManager : Singleton<SaveManager>
     private SaveData CreateData()
     {
         SaveData data = new SaveData();
-        data.score = ScoreManager.Instance.GetData();
+        data.score = ScoreManager.Instance.Data;
+        data.audio = AudioManager.Instance.Data;
 
         return data;
     }
