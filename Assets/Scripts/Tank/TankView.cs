@@ -64,6 +64,11 @@ public class TankView : MonoBehaviour
         explosion.GetComponent<Explosion>().Init(velocity, material);
     }
 
+    public void PlaySpawnAnimation()
+    {
+        muzzleAnimation.Play(AnimationNames.MUZZLE_FLASH_RESET);
+    }
+
     public void PlayFireAnimation()
     {
         muzzleAnimation.Play();

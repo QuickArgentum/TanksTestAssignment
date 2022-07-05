@@ -86,6 +86,7 @@ public class TankController : MonoBehaviour
     {
         UpdateDeadState(false);
         transform.position = position;
+        view.PlaySpawnAnimation();
     }
 
     public void UpdateDeadState(bool value)
