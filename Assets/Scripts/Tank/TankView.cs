@@ -8,6 +8,8 @@ public class TankView : MonoBehaviour
     public Material material;
     public float accelerationMultiplier;
     public float speedChangeLambda;
+    public float engineSoundBasePitch;
+    public float engineSoundPitchMultiplier;
 
     private Vector3 direction;
     private float currentSpeed;
@@ -16,6 +18,8 @@ public class TankView : MonoBehaviour
     private Transform muzzleFlash;
     private Animation muzzleAnimation;
     private AudioSource muzzleAudio;
+    private AudioSource engineAudio;
+    private AudioSource whooshAudio;
 
     private void Awake()
     {
@@ -23,6 +27,8 @@ public class TankView : MonoBehaviour
         muzzleFlash = transform.Find("MuzzleFlash");
         muzzleAnimation = muzzleFlash.GetComponent<Animation>();
         muzzleAudio = muzzleFlash.GetComponent<AudioSource>();
+        engineAudio = GetComponent<AudioSource>();
+        whooshAudio = transform.Find("WhooshSound").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -31,10 +37,16 @@ public class TankView : MonoBehaviour
 
         float value = Mathf.Clamp(speedDelta * accelerationMultiplier, -1, 1) * 0.5f + 0.5f;
         animator.SetFloat(AnimationNames.PARAM_ACCELERATION, value);
+
+        engineAudio.pitch = 1.0f + currentSpeed * engineSoundPitchMultiplier;
     }
 
     public void SetDirection(Vector3 direction)
     {
+        if (Vector3.Angle(this.direction, direction) > 1.0f)
+        {
+            whooshAudio.Play();
+        }
         this.direction = direction;
     }
 

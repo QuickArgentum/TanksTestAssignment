@@ -53,7 +53,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1702621723167437272}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  hitPitchVariance: 0
+  hitPitchVariance: 0.5
 --- !u!82 &3928104611831497832
 AudioSource:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3457429bbdc99c49b82d6a078401407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.63
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -278,7 +278,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4599139329950812297}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  hitPitchVariance: 0
+  hitPitchVariance: 0.5
 --- !u!82 &9154499481518593820
 AudioSource:
   m_ObjectHideFlags: 0
@@ -366,7 +366,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3457429bbdc99c49b82d6a078401407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.63
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -503,7 +503,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4900531295783690123}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  hitPitchVariance: 0
+  hitPitchVariance: 0.5
 --- !u!82 &7633435770145511730
 AudioSource:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3457429bbdc99c49b82d6a078401407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.63
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -729,7 +729,7 @@ MeshRenderer:
   m_GameObject: {fileID: 5965355645518245417}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  hitPitchVariance: 0
+  hitPitchVariance: 0.5
 --- !u!82 &3188330171947157733
 AudioSource:
   m_ObjectHideFlags: 0
@@ -817,7 +817,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3457429bbdc99c49b82d6a078401407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.63
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -954,7 +954,7 @@ MeshRenderer:
   m_GameObject: {fileID: 8696217414596543837}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1029,7 +1029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  hitPitchVariance: 0
+  hitPitchVariance: 0.5
 --- !u!82 &3739104862936078451
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3457429bbdc99c49b82d6a078401407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.63
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1222,7 +1222,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: dc59d34a4e4e6bc4398ae319e811c1a1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.656
-  m_Pitch: 1
+  m_Pitch: 0.9
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1358,7 +1358,7 @@ MeshRenderer:
   m_GameObject: {fileID: 8903582027036668877}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  hitPitchVariance: 0
+  hitPitchVariance: 0.5
 --- !u!82 &3487588342971338593
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1445,7 +1445,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3457429bbdc99c49b82d6a078401407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.63
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1582,7 +1582,7 @@ MeshRenderer:
   m_GameObject: {fileID: 9109356649618830819}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  hitPitchVariance: 0
+  hitPitchVariance: 0.5
 --- !u!82 &5326556173215946342
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1669,7 +1669,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3457429bbdc99c49b82d6a078401407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.63
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
