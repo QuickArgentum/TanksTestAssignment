@@ -123,3 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refireTime: 0.5
+--- !u!81 &3540502303565672747
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927701526981519115}
+  m_Enabled: 1

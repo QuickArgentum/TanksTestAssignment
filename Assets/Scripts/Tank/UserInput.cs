@@ -40,7 +40,7 @@ public class UserInput : MonoBehaviour
 
         controller.SetMovementDirection(direction);
 
-        if (Input.GetButtonDown("Fire") && Time.time > lastFireTime + refireTime)
+        if (Input.GetButtonDown(InputNames.FIRE) && Time.time > lastFireTime + refireTime)
         {
             controller.Fire();
             lastFireTime = Time.time;
@@ -49,12 +49,12 @@ public class UserInput : MonoBehaviour
 
     private Vector3 HorizontalHandler()
     {
-        return Vector3.right * Input.GetAxis("Horizontal");
+        return Vector3.right * Input.GetAxis(InputNames.HORIZONTAL);
     }
 
     private Vector3 VerticalHandler()
     {
-        return Vector3.forward * Input.GetAxis("Vertical");
+        return Vector3.forward * Input.GetAxis(InputNames.VERTICAL);
     }
 
     delegate Vector3 AxisHandler();
