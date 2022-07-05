@@ -41,6 +41,8 @@ public class TankController : MonoBehaviour
         throttle = Mathf.Clamp01(throttle);
         float multiplier = (accelerating ? accelerationCurve : brakingCurve).Evaluate(throttle);
         rb.velocity = direction * multiplier * speed;
+
+        view.SetSpeed(rb.velocity.magnitude);
     }
 
     public void SetMovementDirection(Vector3 direction)
@@ -51,8 +53,8 @@ public class TankController : MonoBehaviour
 
         if (direction.magnitude > Mathf.Epsilon)
         {
-            rotation = Quaternion.LookRotation(direction, Vector3.up);
             view.SetDirection(direction);
+            rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
     }
 
