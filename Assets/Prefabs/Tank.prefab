@@ -79,6 +79,65 @@ MonoBehaviour:
   speed: 8
   bulletPrefab: {fileID: 5611609372563341969, guid: 05d6ffd66a2f8d642aaef526296cc153, type: 3}
   bulletSpawnOffset: {x: 0, y: 0.5, z: 0.5}
+  accelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.33327246
+      value: 0.6508505
+      inSlope: 0.26860666
+      outSlope: 0.26860666
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.29016304
+    - serializedVersion: 3
+      time: 0.9958191
+      value: 0.7264137
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  brakingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  accelerationTime: 5
+  brakingTime: 3
 --- !u!1 &9051195539960328648
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationRadianDelta: 0.12
   explosionPrefab: {fileID: 8825486778759195866, guid: 9cccf00067fc8414b8f31c64f1098a1a, type: 3}
+  material: {fileID: 0}
 --- !u!1001 &5962427815682045968
 PrefabInstance:
   m_ObjectHideFlags: 0
