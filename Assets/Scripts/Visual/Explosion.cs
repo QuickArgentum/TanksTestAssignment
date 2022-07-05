@@ -30,7 +30,7 @@ public class Explosion : MonoBehaviour
             item.AddTorque(Random.insideUnitSphere * Random.Range(0, torqueMultiplier));
         }
 
-        StartCoroutine(QueueDestruction(GetComponent<Animation>().GetClip(AnimationNames.EXPLOSION).length));
+        StartCoroutine(QueueDestruction(GetComponent<Animation>().clip.length));
     }
 
     public void Init(Vector3 velocity, Material material)
