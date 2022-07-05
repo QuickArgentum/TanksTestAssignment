@@ -7,14 +7,20 @@ public class TankController : MonoBehaviour
     public float speed;
     public GameObject bulletPrefab;
     public Vector3 bulletSpawnOffset;
+    public AnimationCurve accelerationCurve;
+    public AnimationCurve brakingCurve;
+    public float accelerationTime;
+    public float brakingTime;
 
     public event EventHandler DeadStateChanged;
 
     private Rigidbody rb;
     private Collider col;
     private TankView view;
+    private Vector3 direction;
     private Quaternion rotation;
     private bool isDead = false;
+    private float throttle = 0;
 
     private void Awake()
     {
@@ -23,16 +29,32 @@ public class TankController : MonoBehaviour
         view = transform.Find("View").GetComponent<TankView>();
     }
 
+    private void Update()
+    {
+        bool accelerating = direction.magnitude > Mathf.Epsilon;
+
+        if (accelerating)
+            throttle += 1 / accelerationTime;
+        else
+            throttle -= 1 / brakingTime;
+
+        throttle = Mathf.Clamp01(throttle);
+        float multiplier = (accelerating ? accelerationCurve : brakingCurve).Evaluate(throttle);
+        rb.velocity = direction * multiplier * speed;
+
+        view.SetSpeed(rb.velocity.magnitude);
+    }
+
     public void SetMovementDirection(Vector3 direction)
     {
         if (isDead) return;
 
-        rb.velocity = direction * speed;
+        this.direction = direction;
 
         if (direction.magnitude > Mathf.Epsilon)
         {
-            rotation = Quaternion.LookRotation(direction, Vector3.up);
             view.SetDirection(direction);
+            rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
     }
 
@@ -50,7 +72,8 @@ public class TankController : MonoBehaviour
     public void Kill()
     {
         UpdateDeadState(true);
-        rb.velocity = Vector3.zero;
+        throttle = 0;
+        direction = Vector3.zero;
         RespawnManager.Instance.RequestRespawn(this);
         ScoreManager.Instance.HandleKill(this);
         view.PlayDeathAnimation(rb.velocity);
