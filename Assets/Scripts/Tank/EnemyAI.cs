@@ -8,13 +8,17 @@ public class EnemyAI : MonoBehaviour
     public float minDecisionTime;
     public float maxDecisionTime;
     public LayerMask decisionLayerMask;
-    public float moveTestDistance;
+    public Vector3 moveBlockingAreaHalfSize;
 
     private static readonly Vector3[] DIRECTIONS = { Vector3.forward, Vector3.back, Vector3.right, Vector3.left };
 
     private int currentDir;
     private TankController controller;
     private Coroutine coroutine;
+
+    private Vector3 lastCubeSize;
+    private Vector3 lastCubePos;
+    private Quaternion lastCubeRot;
 
     private void Awake()
     {
@@ -39,6 +43,7 @@ public class EnemyAI : MonoBehaviour
         if (tank && tank.alignment != controller.alignment) return;
 
         Reset();
+        ChangeDirection();
     }
 
     private void MakeAMove()
@@ -83,7 +88,19 @@ public class EnemyAI : MonoBehaviour
 
     private bool IsMoveDirectionBlocked(Vector3 direction)
     {
-        return Physics.Raycast(transform.position + Vector3.up * 0.5f, direction, moveTestDistance, decisionLayerMask);
+        Vector3 area = moveBlockingAreaHalfSize;
+
+        lastCubePos = transform.position + direction.normalized;
+        lastCubeRot = Quaternion.LookRotation(direction);
+        lastCubeSize = moveBlockingAreaHalfSize;
+
+        return Physics.CheckBox
+        (
+            transform.position + direction.normalized,
+            moveBlockingAreaHalfSize,
+            Quaternion.LookRotation(direction),
+            decisionLayerMask
+        );
     }
 
     private void UpdateController()
@@ -95,11 +112,19 @@ public class EnemyAI : MonoBehaviour
     {
         if (coroutine != null)
             StopCoroutine(coroutine);
-        MakeAMove();
+        coroutine = StartCoroutine(QueueDecision());
     }
 
     private float GetNextTime()
     {
         return UnityEngine.Random.Range(minDecisionTime, maxDecisionTime);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Matrix4x4 matrix = Matrix4x4.TRS(lastCubePos, lastCubeRot, Vector3.one);
+        Gizmos.matrix = matrix;
+        Gizmos.color = new Color(0f, 0.5f, 1f, 0.5f);
+        Gizmos.DrawCube(Vector3.zero, lastCubeSize * 2);
     }
 }
