@@ -91,7 +91,8 @@ public class EnemyAI : MonoBehaviour
     {
         return Physics.CheckBox
         (
-            transform.position + direction.normalized,
+            // Adding a small offset so that tanks don't consider themselves obstacles
+            transform.position + direction.normalized * (0.5f + moveBlockingAreaHalfSize.z + 0.05f),
             moveBlockingAreaHalfSize,
             Quaternion.LookRotation(direction),
             decisionLayerMask
