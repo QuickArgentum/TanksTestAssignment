@@ -5,18 +5,18 @@ public class TankController : MonoBehaviour
 {
     [Header("Controls base tank logic")]
     public Alignment alignment;
-    [Header("Top speed of the tank")]
+    [Tooltip("Top speed of the tank")]
     public float speed;
     public GameObject bulletPrefab;
-    [Header("Where the bullet will spawn in relation to the tank origin")]
+    [Tooltip("Where the bullet will spawn in relation to the tank origin")]
     public Vector3 bulletSpawnOffset;
-    [Header("How the velocity will change during acceleration")]
+    [Tooltip("How the velocity will change during acceleration")]
     public AnimationCurve accelerationCurve;
-    [Header("How the velocity will change during deceleration")]
+    [Tooltip("How the velocity will change during deceleration")]
     public AnimationCurve brakingCurve;
-    [Header("The time it takes to reach the end of the acceleration curve")]
+    [Tooltip("The time it takes to reach the end of the acceleration curve")]
     public float accelerationTime;
-    [Header("The time it takes to reach the end of the deceleration curve")]
+    [Tooltip("The time it takes to reach the end of the deceleration curve")]
     public float brakingTime;
 
     public event EventHandler DeadStateChanged;

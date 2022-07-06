@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ContactDamage : MonoBehaviour
 {
-    [Header("Will kill tanks of different alignment on collision or trigger`")]
+    [Header("Will kill tanks of different alignment on collision or trigger")]
     public Alignment alignment;
 
     private void OnTriggerEnter(Collider other)
