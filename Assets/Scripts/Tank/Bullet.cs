@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -10,12 +8,15 @@ public class Bullet : MonoBehaviour
     private Animation anim;
     private ContactDamage contactDamage;
     private Rigidbody rb;
+    private Transform effect;
+    private bool isDying = false;
 
     private void Awake()
     {
         anim = GetComponent<Animation>();
         contactDamage = GetComponent<ContactDamage>();
         rb = GetComponent<Rigidbody>();
+        effect = transform.Find("BreakEffect");
     }
 
     void Start()
@@ -33,23 +34,19 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject != source)
+        if (!isDying && other.gameObject != source)
             Break();
     }
 
     private void Break()
     {
-        contactDamage.enabled = false;
+        isDying = true;
+        Destroy(contactDamage);
         rb.velocity = Vector3.zero;
+
+        effect.localEulerAngles = new Vector3(0, 0, Random.Range(-180, 180));
         anim.Play();
 
-        StartCoroutine(QueueDestruction(anim.clip.length));
-    }
-
-    private IEnumerator QueueDestruction(float time)
-    {
-        yield return new WaitForSeconds(time);
-
-        Destroy(gameObject);
+        Destroy(gameObject, anim.clip.length);
     }
 }
