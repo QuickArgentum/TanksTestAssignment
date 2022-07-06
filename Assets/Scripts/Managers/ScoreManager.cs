@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
+    [Header("Manages score and highscore")]
     public Text ScoreLabel;
     public Text HighScoreLabel;
 

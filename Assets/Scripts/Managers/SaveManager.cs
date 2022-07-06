@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
+    [Header("Manages saving & loading persistant data")]
+    [Tooltip("File name in the persistant data directory where the settings will be saved")]
     public string filename;
 
     private string path;

@@ -2,6 +2,9 @@
 
 public static class RandomExtensions
 {
+    /// <summary>
+    /// Shuffle the array in place
+    /// </summary>
     public static void Shuffle<T>(this Random rng, T[] array)
     {
         int n = array.Length;
