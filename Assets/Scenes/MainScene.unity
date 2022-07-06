@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 700681629957382810, guid: 8b28f0879eeeff54095878b3ba68e3ec, type: 3}
-  maxDecals: 16
+  maximumDecals: 16
 --- !u!1 &953185721
 GameObject:
   m_ObjectHideFlags: 0
