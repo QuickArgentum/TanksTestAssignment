@@ -1055,6 +1055,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21ae0417bfc68a43b50219eab64ea5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    muted: 0
 --- !u!1 &871200414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 700681629957382810, guid: 8b28f0879eeeff54095878b3ba68e3ec, type: 3}
-  maxDecals: 16
+  maximumDecals: 16
 --- !u!1 &953185721
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
+    [Header("Controls base tank logic")]
     public Alignment alignment;
+    [Tooltip("Top speed of the tank")]
     public float speed;
     public GameObject bulletPrefab;
+    [Tooltip("Where the bullet will spawn in relation to the tank origin")]
     public Vector3 bulletSpawnOffset;
+    [Tooltip("How the velocity will change during acceleration")]
     public AnimationCurve accelerationCurve;
+    [Tooltip("How the velocity will change during deceleration")]
     public AnimationCurve brakingCurve;
+    [Tooltip("The time it takes to reach the end of the acceleration curve")]
     public float accelerationTime;
+    [Tooltip("The time it takes to reach the end of the deceleration curve")]
     public float brakingTime;
 
     public event EventHandler DeadStateChanged;
@@ -20,6 +27,7 @@ public class TankController : MonoBehaviour
     private Vector3 direction;
     private Quaternion rotation;
     private bool isDead = false;
+    // Progress through acceleration/deceleration curves
     private float throttle = 0;
 
     private void Awake()

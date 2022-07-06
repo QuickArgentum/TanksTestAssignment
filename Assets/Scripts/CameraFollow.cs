@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    [Header("Smoothly follows set target")]
     public Transform target;
     [Range(0, 1)]
     public float smoothTime;

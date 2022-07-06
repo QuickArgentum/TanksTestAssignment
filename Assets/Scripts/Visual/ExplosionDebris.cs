@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class ExplosionDebris : MonoBehaviour
 {
+    [Header("Explosion tank piece affected by physics")]
+    [Tooltip("How long will the piece persist before getting cleaned up")]
     public float lifetime;
+    [Tooltip("Variance of the collision impact sound")]
     public float hitPitchVariance;
 
     private Rigidbody rb;

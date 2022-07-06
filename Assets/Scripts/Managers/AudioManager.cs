@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
+    [Header("Manages audio muting")]
+    [SerializeField]
     private AudioData data;
     public AudioData Data
     {
