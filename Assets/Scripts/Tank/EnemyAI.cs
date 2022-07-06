@@ -16,10 +16,6 @@ public class EnemyAI : MonoBehaviour
     private TankController controller;
     private Coroutine coroutine;
 
-    private Vector3 lastCubeSize;
-    private Vector3 lastCubePos;
-    private Quaternion lastCubeRot;
-
     private void Awake()
     {
         controller = GetComponent<TankController>();
@@ -88,12 +84,6 @@ public class EnemyAI : MonoBehaviour
 
     private bool IsMoveDirectionBlocked(Vector3 direction)
     {
-        Vector3 area = moveBlockingAreaHalfSize;
-
-        lastCubePos = transform.position + direction.normalized;
-        lastCubeRot = Quaternion.LookRotation(direction);
-        lastCubeSize = moveBlockingAreaHalfSize;
-
         return Physics.CheckBox
         (
             transform.position + direction.normalized,
@@ -118,13 +108,5 @@ public class EnemyAI : MonoBehaviour
     private float GetNextTime()
     {
         return UnityEngine.Random.Range(minDecisionTime, maxDecisionTime);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Matrix4x4 matrix = Matrix4x4.TRS(lastCubePos, lastCubeRot, Vector3.one);
-        Gizmos.matrix = matrix;
-        Gizmos.color = new Color(0f, 0.5f, 1f, 0.5f);
-        Gizmos.DrawCube(Vector3.zero, lastCubeSize * 2);
     }
 }
