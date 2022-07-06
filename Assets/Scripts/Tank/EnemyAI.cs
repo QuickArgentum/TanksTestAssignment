@@ -5,9 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(TankController))]
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Allows the computer to control the tank")]
+    [Tooltip("Minimal time between direction changes")]
     public float minDecisionTime;
+    [Tooltip("Maximal time between direction changes")]
     public float maxDecisionTime;
+    [Tooltip("Objects which are considered impassable by the AI")]
     public LayerMask decisionLayerMask;
+    [Tooltip("Area in front of the tank which is checked to be free before moving")]
     public Vector3 moveBlockingAreaHalfSize;
 
     private static readonly Vector3[] DIRECTIONS = { Vector3.forward, Vector3.back, Vector3.right, Vector3.left };

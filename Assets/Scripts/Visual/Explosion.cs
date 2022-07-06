@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    [Header("Tank death animation")]
+    [Tooltip("List of physics tank pieces")]
     public ExplosionDebris[] debris;
+    [Tooltip("Variance of the debris pieces lifetime")]
     public float lifetimeVariance;
     public float forceMultiplier;
     public float forceVariance;

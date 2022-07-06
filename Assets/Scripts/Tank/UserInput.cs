@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(TankController))]
 public class UserInput : MonoBehaviour
 {
+    [Header("Allows the user to control the tank")]
+    [Tooltip("Minimal time between shots")]
     public float refireTime;
 
     private TankController controller;

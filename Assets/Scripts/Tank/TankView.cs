@@ -3,12 +3,20 @@ using UnityEngine;
 
 public class TankView : MonoBehaviour
 {
+    [Header("Controls tank visuals and sounds")]
+    [Tooltip("How quickly the tank will turn during direction changes")]
     public float rotationRadianDelta;
+    [Tooltip("Prefab for the tank death animation")]
     public GameObject explosionPrefab;
+    [Tooltip("Base material of the tank to set it in the explosion prefab")]
     public Material material;
+    [Tooltip("The magnitude of the acceleration/braking animations")]
     public float accelerationMultiplier;
+    [Tooltip("How quickly the tank speed will change for the acceleration/braking animations")]
     public float speedChangeLambda;
+    [Tooltip("Engine sounds pitch at idle")]
     public float engineSoundBasePitch;
+    [Tooltip("Engine sound pitch will be increased by tank speed times this value")]
     public float engineSoundPitchMultiplier;
 
     private Vector3 direction;
@@ -39,15 +47,15 @@ public class TankView : MonoBehaviour
     {
         transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, rotationRadianDelta * Time.deltaTime, 0.0f));
 
-        float value = Mathf.Clamp(speedDelta * accelerationMultiplier, -1, 1) * 0.5f + 0.5f;
-        animator.SetFloat(AnimationNames.PARAM_ACCELERATION, value);
+        float animatorParameter = Mathf.Clamp(speedDelta * accelerationMultiplier, -1, 1) * 0.5f + 0.5f;
+        animator.SetFloat(AnimationNames.PARAM_ACCELERATION, animatorParameter);
 
         engineAudio.pitch = 1.0f + currentSpeed * engineSoundPitchMultiplier;
     }
 
     public void SetDirection(Vector3 direction)
     {
-        if (Vector3.Angle(this.direction, direction) > 1.0f)
+        if (Vector3.Angle(this.direction, direction) > Mathf.Epsilon)
         {
             whooshAudio.Play();
         }

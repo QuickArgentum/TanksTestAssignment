@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class RespawnManager : Singleton<RespawnManager>
 {
+    [Header("Manages tank respawning. Children mark the spots.")]
+    [Tooltip("Time it takes for a tank to respawn")]
     public float respawnTime = 1.0f;
+    [Tooltip("Objects in this area around the respawn point will disallow spawning in it")]
     public Vector3 respawnBlockHalfExtents;
+    [Tooltip("Kinds of objects that may block respawn points")]
     public LayerMask blockingMask;
 
     public void RequestRespawn(TankController tank)
