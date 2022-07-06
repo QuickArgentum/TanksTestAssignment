@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(TankController))]
@@ -9,10 +8,9 @@ public class EnemyAI : MonoBehaviour
     public float minDecisionTime;
     public float maxDecisionTime;
     public LayerMask decisionLayerMask;
-    public float moveTestDistance;
+    public Vector3 moveBlockingAreaHalfSize;
 
     private static readonly Vector3[] DIRECTIONS = { Vector3.forward, Vector3.back, Vector3.right, Vector3.left };
-    private static readonly int ITERATIONS = 20;
 
     private int currentDir;
     private TankController controller;
@@ -41,6 +39,7 @@ public class EnemyAI : MonoBehaviour
         if (tank && tank.alignment != controller.alignment) return;
 
         Reset();
+        ChangeDirection();
     }
 
     private void MakeAMove()
@@ -57,27 +56,41 @@ public class EnemyAI : MonoBehaviour
 
     private void ChangeDirection()
     {
-        int direction;
-        int i = 0;
-        do
-        {
-            if (i > ITERATIONS)
-            {
-                Reset();
-                return;
-            }
-            direction = UnityEngine.Random.Range(0, DIRECTIONS.Length);
-            i++;
-        }
-        while (IsMoveDirectionBlocked(DIRECTIONS[direction]) || currentDir == direction);
+        int[] directions = new int[DIRECTIONS.Length];
+        for (int i = 0; i < DIRECTIONS.Length; i++)
+            directions[i] = i;
 
-        currentDir = direction;
-        UpdateController();
+        System.Random rng = new System.Random();
+        rng.Shuffle(directions);
+
+        int result = -1;
+        foreach(int direction in directions)
+        {
+            if (currentDir != direction && !IsMoveDirectionBlocked(DIRECTIONS[direction]))
+            {
+                result = direction;
+                break;
+            }
+        }
+
+        if (result < 0)
+            Reset();
+        else
+        {
+            currentDir = result;
+            UpdateController();
+        }
     }
 
     private bool IsMoveDirectionBlocked(Vector3 direction)
     {
-        return Physics.Raycast(transform.position + Vector3.up * 0.5f, direction, moveTestDistance, decisionLayerMask);
+        return Physics.CheckBox
+        (
+            transform.position + direction.normalized,
+            moveBlockingAreaHalfSize,
+            Quaternion.LookRotation(direction),
+            decisionLayerMask
+        );
     }
 
     private void UpdateController()
@@ -87,8 +100,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Reset()
     {
-        StopCoroutine(coroutine);
-        MakeAMove();
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(QueueDecision());
     }
 
     private float GetNextTime()
