@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -33,19 +32,12 @@ public class Explosion : MonoBehaviour
             item.AddTorque(Random.insideUnitSphere * Random.Range(0, torqueMultiplier));
         }
 
-        StartCoroutine(QueueDestruction(GetComponent<Animation>().clip.length));
+        Destroy(gameObject, GetComponent<Animation>().clip.length);
     }
 
     public void Init(Vector3 velocity, Material material)
     {
         this.velocity = velocity;
         this.material = material;
-    }
-
-    private IEnumerator QueueDestruction(float time)
-    {
-        yield return new WaitForSeconds(time);
-
-        Destroy(gameObject);
     }
 }

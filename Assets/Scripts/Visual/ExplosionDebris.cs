@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ExplosionDebris : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class ExplosionDebris : MonoBehaviour
     private void Start()
     {
         gameObject.name = "Debris";
-        StartCoroutine(QueueDestruction());
+        Destroy(gameObject, lifetime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -33,13 +32,6 @@ public class ExplosionDebris : MonoBehaviour
         audioSource.pitch = Random.Range(1.0f - hitPitchVariance, 1.0f + hitPitchVariance);
         audioSource.volume = volume * collision.impulse.magnitude;
         audioSource.Play();
-    }
-
-    private IEnumerator QueueDestruction()
-    {
-        yield return new WaitForSeconds(lifetime);
-
-        Destroy(gameObject);
     }
 
     public void AddForce(Vector3 force)
